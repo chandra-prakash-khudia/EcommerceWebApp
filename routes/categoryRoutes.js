@@ -10,6 +10,47 @@ import {
 
 const router = express.Router();
 
+// //routes
+// // create category
+// // router.post(
+// //   "/create-category",
+// //   requireSignIn,
+// //   isAdmin,
+// //   createCategoryController
+// // );
+// router.post(
+//   "/create-category",
+//   createCategoryController
+// );
+
+// //update category
+// router.put(
+//   "/update-category/:id",
+//   UpdateCategoryController
+// );
+
+// //getALl category
+// router.get("/get-category", CategoryController);
+
+// //single category
+// router.get("/single-category/:slug", SingleCategoryController);
+
+// //delete category
+// // router.delete(
+// //   "/delete-category/:id",
+// //   requireSignIn,
+// //   isAdmin,
+// //   DeleteCategoryController
+// // );
+
+// router.delete(
+//   "/delete-category/:id",
+//   DeleteCategoryController
+// );
+
+
+
+
 //routes
 // create category
 router.post(
