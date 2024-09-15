@@ -23,7 +23,7 @@ const Orders = () => {
     const getOrders = async () => {
         try {
             const userId = auth.user._id;
-            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/auth/orders`, {
+            const { data } = await axios.get(`${window.location.origin}/api/v1/auth/orders`, {
                 params: { userId },
                 withCredentials: true, // If your backend requires credentials
               } ,{config} );
@@ -81,7 +81,7 @@ const Orders = () => {
                                                 <div className="row mb-2 p-3 card flex-row" key={p._id}>
                                                     <div className="col-md-4">
                                                         <img
-                                                            src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                                                            src={`${window.location.origin}/api/v1/product/product-photo/${p._id}`}
                                                             className="card-img-top"
                                                             alt={p.name}
                                                             width="100px"

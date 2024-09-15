@@ -21,7 +21,7 @@ const Users = () => {
   const getAllUsers = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/auth/all-users`,
+        `${window.location.origin}/api/v1/auth/all-users`,
         { withCredentials: true }
       );
       if (data.success) {

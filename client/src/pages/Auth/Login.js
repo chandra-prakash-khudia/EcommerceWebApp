@@ -19,7 +19,7 @@ const Login = () => {
   //   e.preventDefault();
   //   try {
   
-  //     const res = await axios.post(`${process.env.REACT_APP_API}/api/v1/auth/login`, {
+  //     const res = await axios.post(`${window.location.origin}/api/v1/auth/login`, {
   //       email,
   //       password
   //     } , {
@@ -127,7 +127,7 @@ const handleSubmit = async (e) => {
 
   try {
     const { data } = await axios.post(
-      `${process.env.REACT_APP_API}/api/v1/auth/login`,
+      `${window.location.origin}/api/v1/auth/login`,
       { email, password },
       { withCredentials: true }
     );

@@ -18,7 +18,7 @@ const CategoryProduct = () => {
   const getProductsByCat = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-category/${params.slug}`,
+        `${window.location.origin}/api/v1/product/product-category/${params.slug}`,
         { withCredentials: true }
       );
       setProducts(data?.products || []); // Default to empty array
@@ -45,7 +45,7 @@ const CategoryProduct = () => {
                   key={p._id}
                 >
                   <img
-                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                    src={`${window.location.origin}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                     style={{ height: "200px", objectFit: "cover" }}

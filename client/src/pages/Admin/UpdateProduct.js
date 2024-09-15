@@ -24,7 +24,7 @@
 //     // get single product 
 //     const getSingleProduct = async () =>{
 //         try {
-//             const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/get-product/${params.slug}`, { withCredentials: true });
+//             const { data } = await axios.get(`${window.location.origin}/api/v1/product/get-product/${params.slug}`, { withCredentials: true });
 //             setName(data.product.name)
 //             setPrice(data.product.price)
 //             setDescription(data.product.description)
@@ -287,7 +287,7 @@ const UpdateProduct = () => {
     // get single product 
     const getSingleProduct = async () => {
         try {
-            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/get-product/${params.slug}`, { withCredentials: true });
+            const { data } = await axios.get(`${window.location.origin}/api/v1/product/get-product/${params.slug}`, { withCredentials: true });
             setName(data.product.name);
             setPrice(data.product.price);
             setDescription(data.product.description);
@@ -307,7 +307,7 @@ const UpdateProduct = () => {
     // get all categories
     const getAllCategory = async () => {
         try {
-            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`, { withCredentials: true });
+            const { data } = await axios.get(`${window.location.origin}/api/v1/category/get-category`, { withCredentials: true });
             if (data?.success) {
                 setCategories(data?.category);
             }
@@ -333,7 +333,7 @@ const UpdateProduct = () => {
             productData.append('shipping', shipping);
             productData.append('quantity', quantity);
 
-            const { data } = await axios.put(`${process.env.REACT_APP_API}/api/v1/product/update-product/${id}`, productData, { withCredentials: true });
+            const { data } = await axios.put(`${window.location.origin}/api/v1/product/update-product/${id}`, productData, { withCredentials: true });
             if (data?.success) {
                 toast.success("Product updated successfully");
                 navigate('/dashboard/admin/products');
@@ -351,7 +351,7 @@ const UpdateProduct = () => {
         try {
             let answer = window.confirm("Are you sure you want to delete this product?");
             if (!answer) return;
-            const { data } = await axios.delete(`${process.env.REACT_APP_API}/api/v1/product/delete-product/${id}`, {
+            const { data } = await axios.delete(`${window.location.origin}/api/v1/product/delete-product/${id}`, {
                 withCredentials: true,
               });
           
@@ -415,7 +415,7 @@ const UpdateProduct = () => {
                                 ) : (
                                     <div className="text-center">
                                         <img
-                                            src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${id}`}
+                                            src={`${window.location.origin}/api/v1/product/product-photo/${id}`}
                                             alt="product_photo"
                                             height={"200px"}
                                             className="img img-responsive"

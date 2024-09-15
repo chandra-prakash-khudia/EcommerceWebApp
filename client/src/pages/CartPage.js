@@ -51,7 +51,7 @@ const CartPage = () => {
     //get payment gateway token
     const getToken = async () => {
         try {
-            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/braintree/token`, { withCredentials: true, });
+            const { data } = await axios.get(`${window.location.origin}/api/v1/product/braintree/token`, { withCredentials: true, });
             setClientToken(data?.clientToken);
         } catch (error) {
             console.log(error);
@@ -66,7 +66,7 @@ const CartPage = () => {
         try {
             setLoading(true);
             const { nonce } = await instance.requestPaymentMethod();
-            const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/braintree/payment`, {
+            const { data } = await axios.post(`${window.location.origin}/api/v1/product/braintree/payment`, {
                 nonce,
                 cart,
                 userId: auth?.user?._id,
@@ -104,7 +104,7 @@ const CartPage = () => {
                             <div className="row mb-3 p-3 border rounded shadow-sm" key={p._id}>
                                 <div className="col-md-4 d-flex justify-content-center">
                                     <img
-                                        src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                                        src={`${window.location.origin}/api/v1/product/product-photo/${p._id}`}
                                         className="img-fluid rounded"
                                         alt={p.name}
                                     />

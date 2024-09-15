@@ -17,7 +17,7 @@ const Products = () => {
   const [products, setProducts] = useState([])
   const getAllProducts = async () => {
     try {
-      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/product/get-product`, { withCredentials: true } , config);
+      const { data } = await axios.get(`${window.location.origin}/api/v1/product/get-product`, { withCredentials: true } , config);
       setProducts(data.products)
     }
     catch (error) {
@@ -60,7 +60,7 @@ const Products = () => {
                 >
                   <div style={{ flex: '1 1 auto', overflow: 'hidden' }}>
                     <img
-                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                      src={`${window.location.origin}/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
                       alt={p.name}
                       style={{ width: '100%', height: '100%', objectFit: 'cover' }}

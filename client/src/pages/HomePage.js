@@ -23,7 +23,7 @@ const HomePage = () => {
   const getAllCategory = useCallback(async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/category/get-category`,
+        `${window.location.origin}/api/v1/category/get-category`,
         { withCredentials: true }
       );
       if (data?.success) setCategories(data?.category);
@@ -37,7 +37,7 @@ const HomePage = () => {
     try {
       setLoading(true);
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`,
+        `${window.location.origin}/api/v1/product/product-list/${page}`,
         { withCredentials: true }
       );
       setLoading(false);
@@ -52,7 +52,7 @@ const HomePage = () => {
   const getTotal = useCallback(async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-count`,
+        `${window.location.origin}/api/v1/product/product-count`,
         { withCredentials: true }
       );
       setTotal(data.count);
@@ -67,7 +67,7 @@ const HomePage = () => {
       console.log("Loading more products for page:", page); // Debugging line
       setLoading(true);
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`,
+        `${window.location.origin}/api/v1/product/product-list/${page}`,
         { withCredentials: true }
       );
       setLoading(false);
@@ -94,7 +94,7 @@ const HomePage = () => {
   const filterProduct = useCallback(async () => {
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_API}/api/v1/product/product-filters`,
+        `${window.location.origin}/api/v1/product/product-filters`,
         { checked, radio },
         { withCredentials: true }
       );
@@ -178,7 +178,7 @@ const HomePage = () => {
               >
                 <div style={{ flex: '1 1 auto', overflow: 'hidden' }}>
                   <img
-                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                    src={`${window.location.origin}/api/v1/product/product-photo/${p._id}`}
                     className="card-img-top"
                     alt={p.name}
                     style={{ width: '100%', height: '100%', objectFit: 'cover' }}

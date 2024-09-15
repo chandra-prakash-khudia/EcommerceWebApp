@@ -8,14 +8,13 @@ import categoryRoutes from "./routes/categoryRoutes.js";
 import productRoutes from "./routes/productRoutes.js";
 import cors from 'cors'
 import path from 'path'
-// import { fileURLToPath } from 'url'; // Necessary for __dirname in ES Modules
+ import { fileURLToPath } from 'url'; // Necessary for __dirname in ES Modules
 // config env
 dotenv.config()
 // database config
 connectDB();
 
 
-// Create __dirname equivalent in ES Modules
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
@@ -40,24 +39,19 @@ app.use(morgan('dev'))
 app.use(express.json());   //  to parse req.body
 app.use(express.urlencoded({extended:true}));  // parse to from data
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, './client/build')));
-//  routes
+
+// //  routes
 app.use('/api/v1/auth', authRoute)
 app.use("/api/v1/category", categoryRoutes);
 app.use("/api/v1/product", productRoutes);
-// rest api 
-app.use('*' , function(req,res){
-  res.sendFile(path.join(__dirname , './client/build/index.html'))
-})
+
 //port 
 const port = process.env.PORT || 8080
-// const __dirname=path.resolve()
-// if(process.env.NODE_ENV==="production"){
-//   app.use(express.static(path.join(__dirname, "/client/build")));
-//   app.get("*", (req, res)=>{
-//       res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-//   })
-// }
+
+app.get("/", (req, res) => {
+  app.use(express.static(path.resolve(__dirname, "client", "build")));
+  res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`
     )

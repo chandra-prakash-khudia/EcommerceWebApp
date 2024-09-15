@@ -31,7 +31,7 @@ const CreateProduct = () => {
     // get all categories
     const getAllCategory = async () => {
         try {
-            const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`, { withCredentials: true } ,config );
+            const { data } = await axios.get(`${window.location.origin}/api/v1/category/get-category`, { withCredentials: true } ,config );
             if (data?.success) {
                 setCategories(data?.category);
             }
@@ -57,7 +57,7 @@ const CreateProduct = () => {
             productData.append('shipping', shipping);
             productData.append('quantity', quantity);
             
-            const { data } = await axios.post(`${process.env.REACT_APP_API}/api/v1/product/create-product`, productData, { withCredentials: true } ,config);
+            const { data } = await axios.post(`${window.location.origin}/api/v1/product/create-product`, productData, { withCredentials: true } ,config);
             if (data?.success) {
                 toast.success("Product created successfully");
                 navigate('/dashboard/admin/product');

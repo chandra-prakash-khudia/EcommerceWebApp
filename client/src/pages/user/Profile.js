@@ -43,7 +43,7 @@
 
 //     try {
 //         const { data } = await axios.put(
-//             `${process.env.REACT_APP_API}/api/v1/auth/profile`,
+//             `${window.location.origin}/api/v1/auth/profile`,
 //             { name, email, password, address, phone },
 //             {
 //               headers: {
@@ -196,7 +196,7 @@ const Profile = () => {
 
       // Make PUT request to update profile
       const { data } = await axios.put(
-        `${process.env.REACT_APP_API}/api/v1/auth/profile`,
+        `${window.location.origin}/api/v1/auth/profile`,
         { name, email, password, address, phone },
         {
           headers: {

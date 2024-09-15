@@ -18,7 +18,7 @@ const ProductDetails = () => {
   const getProduct = async () => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/get-product/${params.slug}`,
+        `${window.location.origin}/api/v1/product/get-product/${params.slug}`,
         { withCredentials: true }
       );
       setProduct(data?.product);
@@ -31,7 +31,7 @@ const ProductDetails = () => {
   const getSimilarProduct = async (pid, cid) => {
     try {
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/related-product/${pid}/${cid}`
+        `${window.location.origin}/api/v1/product/related-product/${pid}/${cid}`
       );
       setRelatedProducts(data?.products);
     } catch (error) {
@@ -73,7 +73,7 @@ const ProductDetails = () => {
               onClick={showModal}
             >
               <img
-                src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
+                src={`${window.location.origin}/api/v1/product/product-photo/${product._id}`}
                 alt={product.name}
                 style={{
                   width: '100%',
@@ -180,7 +180,7 @@ const ProductDetails = () => {
         centered
       >
         <img
-          src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${product._id}`}
+          src={`${window.location.origin}/api/v1/product/product-photo/${product._id}`}
           alt={product.name}
           style={{
             width: '100%',
@@ -205,7 +205,7 @@ const ProductDetails = () => {
                 <Card
                   cover={
                     <img
-                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                      src={`${window.location.origin}/api/v1/product/product-photo/${p._id}`}
                       alt={p.name}
                       style={{
                         width: '100%',
